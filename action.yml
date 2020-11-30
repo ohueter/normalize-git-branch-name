@@ -5,8 +5,8 @@ inputs:
     description: "The github.ref variable"
     required: true
   head-ref:
-    description: "The github.ref variable"
-    required: true
+    description: "The github.head_ref variable"
+    required: false
 outputs:
   original_name:
     description: "The original branch name"
