@@ -14,7 +14,15 @@ This action uses the Github context to extract the branch name and normalize it 
 
 **Required** Pass `${{ github.ref }}`.
 
+### `head_ref`
+
+Pass `${{ github.head_ref }}`.
+
 ## Outputs
+
+### `original_name`
+
+The original branch name.
 
 ### `name`
 
@@ -37,8 +45,10 @@ jobs:
         uses: clarifydata/normalize-branch-name@v1
         with:
           ref: ${{ github.ref }}
+          head_ref: ${{ github.head_ref }}
       - name: Get normalized branch name and checksum
         run: |
+          echo "Original branch name: ${{ steps.git-branch.outputs.original_name }}"
           echo "Normalized branch name: ${{ steps.git-branch.outputs.name }}"
           echo "SHA1 checksum of branch name: ${{ steps.git-branch.outputs.hash }}"
 ```

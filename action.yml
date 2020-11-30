@@ -4,7 +4,12 @@ inputs:
   ref:
     description: "The github.ref variable"
     required: true
+  head-ref:
+    description: "The github.ref variable"
+    required: true
 outputs:
+  original_name:
+    description: "The original branch name"
   name:
     description: "The normalized branch name"
   hash:
