@@ -1,0 +1,16 @@
+name: "normalize-branch-name"
+description: "Get a normalized branch name and checksum from a Github ref"
+inputs:
+  ref:
+    description: "The github.ref variable"
+    required: true
+outputs:
+  name:
+    description: "The normalized branch name"
+  hash:
+    description: "SHA1 checksum of the normalized branch name"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.ref }}
