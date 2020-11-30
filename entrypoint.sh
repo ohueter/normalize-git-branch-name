@@ -31,7 +31,7 @@ fi
 
 branch_sha1=`echo "$branch_name" | sha1sum | cut -c -8`
 
-echo "::set-output original_name=name::$GH_BRANCH"
+echo "::set-output original-name=name::$GH_BRANCH"
 echo "::set-output name=name::$branch_name"
 echo "::set-output name=hash::$branch_sha1"
 
