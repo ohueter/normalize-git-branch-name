@@ -40,6 +40,7 @@ on: push
 jobs:
   normalize-branch-name-example:
     runs-on: ubuntu-latest
+    steps:
       - name: normalize branch name
         id: git-branch
         uses: clarifydata/normalize-branch-name@v1
