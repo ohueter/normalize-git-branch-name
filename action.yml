@@ -19,3 +19,4 @@ runs:
   image: "Dockerfile"
   args:
     - ${{ inputs.ref }}
+    - ${{ inputs.head-ref }}
