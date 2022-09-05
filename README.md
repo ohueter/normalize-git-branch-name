@@ -44,16 +44,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Normalize branch name
-        id: git-branch
+        id: git-branch-name
         uses: ohueter/normalize-branch-name@main
         with:
           ref: ${{ github.ref }}
           head-ref: ${{ github.head_ref }}
       - name: Print normalized branch name and checksum
         run: |
-          echo "Original branch name: ${{ steps.git-branch.outputs.original_name }}"
-          echo "Normalized branch name: ${{ steps.git-branch.outputs.name }}"
-          echo "SHA1 checksum of branch name: ${{ steps.git-branch.outputs.hash }}"
+          echo "Original branch name: ${{ steps.git-branch-name.outputs.original_name }}"
+          echo "Normalized branch name: ${{ steps.git-branch-name.outputs.name }}"
+          echo "SHA1 checksum of branch name: ${{ steps.git-branch-name.outputs.hash }}"
 ```
 
 Inspired by https://github.com/ankitvgupta/ref-to-tag-action.
