@@ -29,7 +29,7 @@ if [ -z "$branch_name" ]; then
     exit 1
 fi
 
-branch_sha1=`echo "$branch_name" | sha1sum`
+branch_sha1=`echo -n "$branch_name" | sha1sum | tr -d "\n *-"`
 
 branch_sha1_short=`echo "$branch_sha1" | cut -c -8`
 
