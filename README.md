@@ -2,7 +2,7 @@
 
 Extract the branch name from the GitHub runner context and normalize it using the following steps. Calculates the SHA1 checksum of the normalized branch name and truncates it to 8 characters length. The outputs are safe to use as ressource identifiers in subsequent workflow steps, e.g. as Docker container name.
 
-### Output xample
+### Output example
 
 ```
 Original branch name: fix/server/bug-ticket-#234
