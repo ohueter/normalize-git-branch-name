@@ -7,7 +7,8 @@ Extract the branch name from the GitHub runner context and normalize it using th
 ```
 Original branch name: fix/server/bug-ticket-#234
 Normalized branch name: fix-server-bug-ticket-234
-Branch SHA1 Checksum: 0ecaf4e1
+Branch name SHA1 checksum: 0ecaf4e1f58b0fc5c331bc6500e77f6a325bbb3d
+Branch name short SHA1 checksum: 0ecaf4e1
 ```
 
 ### Normalization steps:
@@ -62,6 +63,7 @@ jobs:
           echo "Original branch name: ${{ steps.git-branch-name.outputs.original_name }}"
           echo "Normalized branch name: ${{ steps.git-branch-name.outputs.name }}"
           echo "SHA1 checksum of branch name: ${{ steps.git-branch-name.outputs.hash }}"
+          echo "Short SHA1 checksum of branch name: ${{ steps.git-branch-name.outputs.short_hash }}"
 ```
 
 Inspired by https://github.com/ankitvgupta/ref-to-tag-action.

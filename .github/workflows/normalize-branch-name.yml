@@ -15,3 +15,4 @@ jobs:
           echo "Original branch name: ${{ steps.git-branch-name.outputs.original_name }}"
           echo "Normalized branch name: ${{ steps.git-branch-name.outputs.name }}"
           echo "SHA1 checksum of branch name: ${{ steps.git-branch-name.outputs.hash }}"
+          echo "Short SHA1 checksum of branch name: ${{ steps.git-branch-name.outputs.short_hash }}"

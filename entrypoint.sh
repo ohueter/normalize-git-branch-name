@@ -29,12 +29,16 @@ if [ -z "$branch_name" ]; then
     exit 1
 fi
 
-branch_sha1=`echo "$branch_name" | sha1sum | cut -c -8`
+branch_sha1=`echo "$branch_name" | sha1sum`
+
+branch_sha1_short=`echo "$branch_sha1" | cut -c -8`
 
 echo "::set-output name=original_name::$GH_BRANCH"
 echo "::set-output name=name::$branch_name"
 echo "::set-output name=hash::$branch_sha1"
+echo "::set-output name=short_hash::$branch_sha1_short"
 
 echo "Original branch name: $GH_BRANCH"
 echo "Normalized branch name: $branch_name"
-echo "Branch SHA1 Checksum: $branch_sha1"
+echo "Branch name SHA1 checksum: $branch_sha1"
+echo "Branch name short SHA1 checksum: $branch_sha1_short"
