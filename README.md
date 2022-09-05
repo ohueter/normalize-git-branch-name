@@ -1,6 +1,6 @@
-# normalize-branch-name Github Action
+# normalize-git-branch-name Github Action
 
-Extract the branch name from the GitHub runner context and normalize it using the following steps. Calculates the SHA1 checksum of the normalized branch name and truncates it to 8 characters length. The outputs are safe to use as ressource identifiers, e.g. as Docker container name.
+Extract the branch name from the GitHub runner context and normalize it using the following steps. Calculates the SHA1 checksum of the normalized branch name and truncates it to 8 characters length. The outputs are safe to use as ressource identifiers in subsequent workflow steps, e.g. as Docker container name.
 
 ### Output xample
 
@@ -53,12 +53,12 @@ SHA1 checksum of the normalized branch name, truncated to 8 characters.
 on: push
 
 jobs:
-  normalize-branch-name-example:
+  normalize-git-branch-name-example:
     runs-on: ubuntu-latest
     steps:
-      - name: Normalize branch name
+      - name: Normalize git branch name
         id: git-branch-name
-        uses: ohueter/normalize-branch-name@main
+        uses: ohueter/normalize-git-branch-name@v1
         with:
           ref: ${{ github.ref }}
           head-ref: ${{ github.head_ref }}

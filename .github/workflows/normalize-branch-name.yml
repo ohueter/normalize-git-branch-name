@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Normalize branch name
         id: git-branch-name
-        uses: ohueter/normalize-branch-name@main
+        uses: ohueter/normalize-git-branch-name@main
         with:
           ref: ${{ github.ref }}
           head-ref: ${{ github.head_ref }}
