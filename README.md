@@ -1,6 +1,14 @@
 # normalize-branch-name Github Action
 
-Extract the branch name from the GitHub runner context and normalize it using the following steps. Calculates the SHA1 checksum of the normalized branch name for further use, e.g. in CI or CD systems.
+Extract the branch name from the GitHub runner context and normalize it using the following steps. Calculates the SHA1 checksum of the normalized branch name and truncates it to 8 characters length. The outputs are safe to use as ressource identifiers, e.g. as Docker container name.
+
+### Output xample
+
+```
+Original branch name: fix/server/bug-ticket-#234
+Normalized branch name: fix-server-bug-ticket-234
+Branch SHA1 Checksum: 0ecaf4e1
+```
 
 ### Normalization steps:
 
@@ -8,7 +16,7 @@ Extract the branch name from the GitHub runner context and normalize it using th
 2. Replace slashes by dashes.
 3. Remove trailing dashes.
 4. Delete all characters other than `[a-zA-Z0-9-]`.
-5. Truncate to 64 characters.w
+5. Truncate to 64 characters.
 
 ## Inputs
 
