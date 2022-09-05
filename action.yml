@@ -1,22 +1,26 @@
-name: "normalize-branch-name"
-description: "Get a normalized branch name and checksum from a Github ref"
+name: 'normalize-git-branch-name'
+author: Ole Hüter
+description: 'Get a normalized git branch name and checksum from the GitHub ref'
+branding:
+  icon: 'hash'
+  color: 'purple'
 inputs:
   ref:
-    description: "The github.ref variable"
+    description: 'The github.ref variable'
     required: true
   head-ref:
-    description: "The github.head_ref variable"
+    description: 'The github.head_ref variable'
     required: false
 outputs:
   original_name:
-    description: "The original branch name"
+    description: 'The original branch name'
   name:
-    description: "The normalized branch name"
+    description: 'The normalized branch name'
   hash:
-    description: "SHA1 checksum of the normalized branch name"
+    description: 'SHA1 checksum of the normalized branch name'
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: 'docker'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.ref }}
     - ${{ inputs.head-ref }}
