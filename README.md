@@ -1,6 +1,8 @@
 # normalize-branch-name Github Action
 
-This action uses the Github context to extract the branch name and normalize it according to the following steps. It calculates the SHA1 checksum of the normalized branch name.
+Extract the branch name from the GitHub runner context and normalize it using the following steps. Calculates the SHA1 checksum of the normalized branch name for further use, e.g. in CI or CD systems.
+
+### Normalization steps:
 
 1. Remove all non-alphanumeric characters at the beginning of the string.
 2. Replace slashes by dashes.
@@ -10,9 +12,9 @@ This action uses the Github context to extract the branch name and normalize it 
 
 ## Inputs
 
-### `ref`
+### `ref` **(required)**
 
-**Required** Pass `${{ github.ref }}`.
+Pass `${{ github.ref }}`.
 
 ### `head-ref`
 
@@ -32,7 +34,7 @@ The normalized branch name.
 
 SHA1 checksum of the normalized branch name.
 
-## Example
+## Usage example
 
 ```yml
 on: push
@@ -41,13 +43,13 @@ jobs:
   normalize-branch-name-example:
     runs-on: ubuntu-latest
     steps:
-      - name: normalize branch name
+      - name: Normalize branch name
         id: git-branch
-        uses: clarifydata/normalize-branch-name@v1
+        uses: ohueter/normalize-branch-name@main
         with:
           ref: ${{ github.ref }}
           head-ref: ${{ github.head_ref }}
-      - name: Get normalized branch name and checksum
+      - name: Print normalized branch name and checksum
         run: |
           echo "Original branch name: ${{ steps.git-branch.outputs.original_name }}"
           echo "Normalized branch name: ${{ steps.git-branch.outputs.name }}"
