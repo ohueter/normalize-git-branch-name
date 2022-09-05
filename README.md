@@ -31,7 +31,7 @@ Pass `${{ github.head_ref }}`.
 
 ## Outputs
 
-### `original-name`
+### `original_name`
 
 The original branch name.
 
@@ -42,6 +42,10 @@ The normalized branch name.
 ### `hash`
 
 SHA1 checksum of the normalized branch name.
+
+### `short_hash`
+
+SHA1 checksum of the normalized branch name, truncated to 8 characters.
 
 ## Usage example
 
